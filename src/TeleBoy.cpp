@@ -320,11 +320,7 @@ bool TeleBoy::Login(string u, string p)
   isPlusMember = result.find("setIsPlusMember(1", endPos) != std::string::npos;
   isComfortMember = result.find("setIsComfortMember(1", endPos)
       != std::string::npos;
-  if (!isPlusMember) {
-    kodi::Log(ADDON_LOG_INFO, "Free accounts are not supported.", userId.c_str());
-    kodi::QueueNotification(QUEUE_ERROR, "", kodi::GetLocalizedString(30102));
-    return false;
-  }
+
   kodi::Log(ADDON_LOG_DEBUG, "Got userId: %s.", userId.c_str());
 
   for (int i = 0; i < 3; ++i)
